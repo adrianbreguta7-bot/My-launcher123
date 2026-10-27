@@ -684,4 +684,4 @@ fun ZalithLauncherTheme(
             content = content
         )
     }
-}
+}.let { if (darkTheme) it.toGlass() else it }
