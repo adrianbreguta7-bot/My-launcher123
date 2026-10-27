@@ -619,7 +619,7 @@ fun ZalithLauncherTheme(
         when {
             dynamicColor && colorTheme == ColorThemeType.DYNAMIC && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
                 if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-            }
+            }.let { if (darkTheme) it.toGlass() else it }
 
             darkTheme -> when (colorTheme) {
                 ColorThemeType.EMBERMIRE -> embermireDark
@@ -684,4 +684,4 @@ fun ZalithLauncherTheme(
             content = content
         )
     }
-}.let { if (darkTheme) it.toGlass() else it }
+}
